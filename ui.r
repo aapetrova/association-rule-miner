@@ -8,7 +8,8 @@ dashboardPage(
   dashboardSidebar(
 	sidebarMenu(
 		menuItem("About", icon=icon("question-circle"), tabName="about"),
-		menuItem("Simple Plot", icon=icon("bar-chart"), tabName="staticplot"),
+		menuItem("Upload CSV", icon=icon("upload"), tabName="upload"),
+		menuItem("Static Plot", icon=icon("bar-chart"), tabName="staticplot"),
 		menuItem("Interactive Table", icon=icon("table"), tabName="table"),
 		menuItem("Interactive Scatterplot", icon=icon("mouse-pointer"), tabName="scatterplot"),
 		menuItem("Acknowledgements", icon=icon("star"), tabName="credits")
@@ -22,12 +23,31 @@ dashboardPage(
 				"Welcome,", br(), br(), "this page contains interactive visualizations of association rule mining.", br(),
 				"It serves as a side-project that emerged during the Data Mining proseminar at the Technical University of Munich.",
 				br(), br(),
-				"The visualizations the visitor can generate include static scatter plots, interactive data tables, and interactive scatter plots.", br(),
-				"This demonstration uses the ExtendedBakery dataset, which is available here.", br(), br(),
+				"You can generate static scatter plots, interactive data tables, and interactive scatter plots.", br(),
+				"This demonstration uses the ExtendedBakery dataset, which is available ", a("here.", href="http://users.csc.calpoly.edu/~dekhtyar/466-Spring2018/labs/lab01.html"), br(), br(),
 				"Have fun ;)"
 				)
 			)
 			
+		),
+		
+		tabItem(tabName="upload",
+		        fluidRow(
+		          box("Upload a CSV where each row represents a transaction like this:", br(), br(),
+		              code("1,item1,item2"), br(),
+		              code("2,item3"), br(),
+		              code("3,item1,item3,item4"), br(), br(),
+		          "Alternatively, you can preview this app with the Extended Bakery dataset.", br(),br(),
+		              # https://github.com/rstudio/shiny-examples/blob/master/009-upload/app.R
+		              fileInput("dataset",
+		                        "Browse CSV:",
+		                        multiple = FALSE,
+		                        accept = c("text/csv", "text/comma-separated-values,text/plain", ".csv")
+		              ),
+		              checkboxInput("hasId", "The first column is an ID.")
+		          )
+		        )
+		  
 		),
 		
 		tabItem(tabName="staticplot", title = "Static plot",
