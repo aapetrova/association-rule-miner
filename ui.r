@@ -24,7 +24,9 @@ dashboardPage(
 				"It serves as a side-project that emerged during the Data Mining proseminar at the Technical University of Munich.",
 				br(), br(),
 				"You can generate static scatter plots, interactive data tables, and interactive scatter plots.", br(),
-				"This demonstration uses the ExtendedBakery dataset, which is available ", a("here.", href="http://users.csc.calpoly.edu/~dekhtyar/466-Spring2018/labs/lab01.html"), br(), br(),
+				"This demonstration uses the ExtendedBakery dataset, which is available ",
+				a("here.", href="http://users.csc.calpoly.edu/~dekhtyar/466-Spring2018/labs/lab01.html"), br(), br(),
+				"Note that this app uses mostly small (~1000 items) datasets for demo purposes.", br(), br(),
 				"Have fun ;)"
 				)
 			)
